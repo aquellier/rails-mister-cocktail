@@ -14,14 +14,22 @@ Ingredient.destroy_all
 p 'Creating ingredients'
 
 INGREDIENTS_URL = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+# Reading JSON file
 ingredients_json = open(INGREDIENTS_URL).read
+
+# Parsing to get a hash
 ingredients_parsed = JSON.parse(ingredients_json)
+
+# Getting an a rray of hashes of drinks
 all_ingredients = ingredients_parsed['drinks']
+
+# For each element, get only the name of the ingredient
 all_ingredients.each do |ingredient|
-  ingredient.each do |k, v|
-    Ingredient.create(name: v)
+  ingredient.each do |key, value|
+    Ingredient.create(name: value)
   end
 end
+
 p 'Ingredients have been successfully created!'
 
 
@@ -32,4 +40,7 @@ Cocktail.create(name: "Moscow Mule")
 p 'Cocktails have been successfully created!'
 
 p 'Creating Doses information'
-Dose.create(coctktail: Cocktail.find())
+Dose.create(cocktail: Cocktail.find(1), ingredient: Ingredient.find(14), description: "3cl")
+Dose.create(cocktail: Cocktail.find(1), ingredient: Ingredient.find(25), description: "10g")
+Dose.create(cocktail: Cocktail.find(1), ingredient: Ingredient.find(47), description: "One full lime")
+Dose.create(cocktail: Cocktail.find(1), ingredient: Ingredient.find(79), description: "One egg white")
