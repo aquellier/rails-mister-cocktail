@@ -11,15 +11,25 @@ require "open-uri"
 p 'Cleaning database...'
 Ingredient.destroy_all
 
+p 'Creating ingredients'
+
 INGREDIENTS_URL = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 ingredients_json = open(INGREDIENTS_URL).read
-# .read extract the json file & accesses the ingredients_json
 ingredients_parsed = JSON.parse(ingredients_json)
-# .parse will transform from json to a hash
-
-ingredients = []
-
-ingredients_parsed["drinks"].each do |ingredient|
-  ingredients << Ingredient.create(name: ingredient.values.first)
+all_ingredients = ingredients_parsed['drinks']
+all_ingredients.each do |ingredient|
+  ingredient.each do |k, v|
+    Ingredient.create(name: v)
+  end
 end
 p 'Ingredients have been successfully created!'
+
+
+p 'Creating cocktails'
+Cocktail.create(name: "Whiskey Sour")
+Cocktail.create(name: "Margarita")
+Cocktail.create(name: "Moscow Mule")
+p 'Cocktails have been successfully created!'
+
+p 'Creating Doses information'
+Dose.create(coctktail: Cocktail.find())
