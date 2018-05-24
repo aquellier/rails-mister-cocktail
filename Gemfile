@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Add gem figaro for security
+gem 'figaro'
 # Add Le wagon front-end gems
 gem 'bootstrap-sass'
 gem 'font-awesome-sass', '~> 5.0.9'
