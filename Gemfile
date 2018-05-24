@@ -31,6 +31,13 @@ gem 'jbuilder', '~> 2.5'
 
 # Add gem figaro for security
 gem 'figaro'
+
+# Add gem cloudinary add pic upload feature
+gem 'cloudinary'
+
+# Add carrierwave to upload files associated with models
+gem 'carrierwave', '~> 1.2'
+
 # Add Le wagon front-end gems
 gem 'bootstrap-sass'
 gem 'font-awesome-sass', '~> 5.0.9'
