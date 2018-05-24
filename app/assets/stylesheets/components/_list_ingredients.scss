@@ -1,0 +1,25 @@
+.list_items {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  margin: 10px 0;
+  &:hover {
+  background-color: #e2e0e0;
+  }
+  a {
+    font-style: helvetica;
+    color: #996e61;
+    font-size: 24px;
+    font-weight: bolder;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.flexing-stuff {
+  flex: 1 1 auto;
+  padding: 20px;
+}

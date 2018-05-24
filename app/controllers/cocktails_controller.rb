@@ -1,7 +1,10 @@
 class CocktailsController < ApplicationController
 
+
   def index
-    @cocktails = Cocktail.all
+    filter= "'%#{params[:search]}%'"
+    @filter_form = params[:search]
+    @cocktails = Cocktail.where("name LIKE #{filter}")
   end
 
   def show

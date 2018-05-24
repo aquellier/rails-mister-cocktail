@@ -1,0 +1,24 @@
+<div class="navbar-wagon">
+  <div class="list-inline">
+    <li>
+      <%= link_to root_path do %>
+      <%= image_tag "rails.jpg", alt: "Cocktail", class: 'avatar' %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to cocktails_path do %>
+      <h4>Discover batch#148 cocktails</h4>
+      <% end %>
+    </li>
+
+  </div>
+  <div class="navbar-wagon-right">
+    <form class="form-inline" action="/cocktails" method="get">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <input type="search" class="form-control" name="search" value=<%= @filter_form %>>
+      <%= link_to cocktails_path do %>
+        <button type="submit" class="btn btn-primary pull-right">Search a cocktail</button>
+      <% end %>
+    </form>
+  </div>
+</div>

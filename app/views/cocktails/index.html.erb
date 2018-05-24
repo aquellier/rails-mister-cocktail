@@ -1,15 +1,16 @@
-<h1>All cocktails</h1>
-<%= link_to "Add a new cocktail", new_cocktail_path, class: 'btn btn-primary'%>
-<div class="container">
-  <div class="row">
-    <% @cocktails.each do |cocktail| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card text-center">
-          <div class="card-body">
-            <%= link_to cocktail.name, cocktail_path(cocktail) %>
+<div class="cocktails-list">
+  <div class="container-fluid">
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+      <%= link_to cocktail_path(cocktail) do %>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.seriouseats.com/images/2015/09/20150727-NuttyMartinez-Cocktail-Elana-Lepkowski.jpg');">
+              <h2><%= cocktail.name %></h2>
+            </div>
           </div>
-        </div>
-      </div>
-    <% end %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
+

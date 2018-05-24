@@ -1,5 +1,8 @@
   <%= simple_form_for(@cocktail) do |f| %>
     <%= f.input :name, placeholder: "Whiskey Sour" %>
-    <%= f.button :submit, class: "btn btn-primary"  %>
+    <div class="d-flex p-2">
+      <%= f.button :submit, class: "btn btn-primary"%>
+    <%= link_to 'Go back to list of cocktails', cocktails_path, class: 'btn btn-danger' %>
+    </div>
   <% end %>
 
