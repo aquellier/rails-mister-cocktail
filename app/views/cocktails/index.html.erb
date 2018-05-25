@@ -4,7 +4,12 @@
       <% @cocktails.each do |cocktail| %>
       <%= link_to cocktail_path(cocktail) do %>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.seriouseats.com/images/2015/09/20150727-NuttyMartinez-Cocktail-Elana-Lepkowski.jpg');">
+            <% if cocktail.picture? %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url('<%= cl_image_path cocktail.picture, height: 300, width: 400, crop: :fill %>')">
+            <% else %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+            url('https://assets.bonappetit.com/photos/57acbeaa1b33404414975151/16:9/w_1200,c_limit/pineapple-hibiscus-cocktail.jpg')">
+            <% end %>
               <h2><%= cocktail.name %></h2>
             </div>
           </div>
